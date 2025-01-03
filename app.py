@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import os
 import json
-import sqlite3
 from flask_swagger_ui import get_swaggerui_blueprint
 # from flask_sqlalchemy import SQLAlchemy
 
