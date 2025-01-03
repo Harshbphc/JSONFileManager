@@ -11,7 +11,8 @@ from model.json_file_model import json_files_model
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:harsh@localhost/json_files'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:harsh@localhost/json_files'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:lY5ULvH4qbFdTeeypgLBsz3oa0wUX2Vy@dpg-ctrq2j3qf0us73dj0250-a.oregon-postgres.render.com/json_files'
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
