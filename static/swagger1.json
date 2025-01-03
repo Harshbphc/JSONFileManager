@@ -1,0 +1,94 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Flask Application API",
+      "description": "API documentation for the Flask application"
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Home Page",
+          "description": "Renders the home page.",
+          "responses": {
+            "200": {
+              "description": "HTML content of the home page."
+            }
+          }
+        }
+      },
+      "/upload": {
+        "get": {
+          "summary": "Upload Screen",
+          "description": "Renders the upload screen with categories.",
+          "responses": {
+            "200": {
+              "description": "HTML content of the upload page."
+            }
+          }
+        }
+      },
+      "/uploaddone": {
+        "post": {
+          "summary": "Handle Upload",
+          "description": "Handles file upload and saves metadata.",
+          "parameters": [
+            {
+              "name": "file",
+              "in": "formData",
+              "description": "File to upload",
+              "required": true,
+              "type": "file"
+            },
+            {
+              "name": "category",
+              "in": "formData",
+              "description": "Category of the file",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "JSON result of the operation."
+            }
+          }
+        }
+      },
+      "/visualize": {
+        "get": {
+          "summary": "Visualize Screen",
+          "description": "Renders the visualization screen with categories.",
+          "responses": {
+            "200": {
+              "description": "HTML content of the visualize page."
+            }
+          }
+        }
+      },
+      "/visualize/{category}": {
+        "get": {
+          "summary": "Visualize Files in Category",
+          "description": "Displays files for a given category.",
+          "parameters": [
+            {
+              "name": "category",
+              "in": "path",
+              "description": "Category name to fetch files for.",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "HTML content of the files page for the specified category."
+            }
+          }
+        }
+      }
+    }
+  }
+  
