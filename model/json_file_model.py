@@ -1,6 +1,11 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+PASSWORD = os.getenv('PASSWORD')
 class json_files_model():
     def __init__(self):
         try:

@@ -5,14 +5,16 @@ from flask_swagger_ui import get_swaggerui_blueprint
 # from flask_sqlalchemy import SQLAlchemy
 
 from model.json_file_model import json_files_model
+from dotenv import load_dotenv
 
+load_dotenv()
+
+DBLINK = os.getenv('DBLINK')
 
 
 app = Flask(__name__)
 
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:harsh@localhost/json_files'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:lY5ULvH4qbFdTeeypgLBsz3oa0wUX2Vy@dpg-ctrq2j3qf0us73dj0250-a.oregon-postgres.render.com/json_files'
+app.config['SQLALCHEMY_DATABASE_URI'] = DBLINK
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
