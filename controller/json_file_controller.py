@@ -66,7 +66,7 @@ def download_file(category, file):
     try:
         metadata, res = dbx.files_download(file_path)
 
-        return send_file(io.BytesIO(res.content), as_attachment=True, attachment_filename=file)
+        return send_file(io.BytesIO(res.content), as_attachment=True, download_name=file)
     
     except dropbox.exceptions.ApiError as e:
         return f"Error: {e}"
