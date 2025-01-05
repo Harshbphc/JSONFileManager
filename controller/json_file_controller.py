@@ -30,7 +30,7 @@ def handle_upload():
     file = request.files.get('file')
     category = request.form.get('category')
     result = save_file_and_metadata(file, category)
-    return jsonify(result)
+    return render_template('upload_result.html', result=result, category=category)
 
 @app.route('/visualize')
 def visualize_screen():
